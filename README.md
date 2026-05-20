@@ -1,18 +1,187 @@
-## Getting Started
+# Actividades Abstract Faces
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Proyecto realizado en Java que contiene:
 
-## Folder Structure
+- Interfaces
+- Clases abstractas
+- Herencia
+- Sobreescritura de métodos
+- Organización por paquetes
+- Uso de `Scanner`
+- Menús con `do while`
 
-The workspace contains two folders by default, where:
+---
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+# Estructura del proyecto
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+```text
+src
+│
+├── App.java
+│
+└── net
+    └── salesianos
+        ├── calculo
+        │   └── Calculo.java
+        │
+        ├── rectangulo
+        │   └── Rectangulo.java
+        │
+        ├── circulo
+        │   └── Circulo.java
+        │
+        ├── vehiculo
+        │   └── Vehiculo.java
+        │
+        └── coche
+            └── Coche.java
+```
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+---
 
-## Dependency Management
+# Actividad 1 - Figuras geométricas
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Interfaz `Calculo`
+
+La interfaz `Calculo` define dos métodos:
+
+```java
+double calcularArea();
+double calcularPerimetro();
+```
+
+Todas las figuras geométricas deben implementar estos métodos.
+
+---
+
+## Clase `Rectangulo`
+
+La clase `Rectangulo`:
+
+- Implementa la interfaz `Calculo`
+- Tiene:
+  - base
+  - altura
+- Calcula:
+  - área
+  - perímetro
+
+### Fórmulas
+
+```text
+Área = base * altura
+Perímetro = (base * 2) + (altura * 2)
+```
+
+---
+
+## Clase `Circulo`
+
+La clase `Circulo`:
+
+- Implementa la interfaz `Calculo`
+- Tiene:
+  - radio
+- Calcula:
+  - área
+  - perímetro
+
+### Fórmulas
+
+```text
+Área = PI * radio²
+Perímetro = 2 * PI * radio
+```
+
+---
+
+# Actividad 2 - Vehículos
+
+## Clase abstracta `Vehiculo`
+
+La clase `Vehiculo` contiene:
+
+### Atributos
+
+- color
+- número de puertas
+- número de ruedas
+- modelo
+- matrícula
+
+### Métodos abstractos
+
+```java
+arrancar();
+pararMotor();
+mover();
+```
+
+Al ser abstracta, no puede instanciarse directamente.
+
+---
+
+## Clase `Coche`
+
+La clase `Coche` hereda de `Vehiculo`.
+
+### Atributos propios
+
+- `motorEnMarca`
+- `litrosDelTanque`
+
+### Funcionamiento
+
+- Al arrancar:
+  - consume 1 litro
+  - enciende el motor
+- Al mover:
+  - consume 1 litro
+  - solo puede moverse si el motor está encendido
+- Al quedarse sin combustible:
+  - el coche se detiene
+
+---
+
+# Clase `App`
+
+La clase `App` contiene el programa principal.
+
+## Menú principal
+
+El programa utiliza un menú con `do while`:
+
+```text
+1 -> Actividad 
+2 -> Actividad 
+0 -> Salir
+```
+
+---
+
+## Opción 1
+
+Solicita datos al usuario para:
+
+- Crear un rectángulo
+- Crear un círculo
+
+Después muestra:
+
+- Datos introducidos
+- Área
+- Perímetro
+
+---
+
+## Opción 2
+
+Realiza automáticamente:
+
+- Crear un coche con 20 litros
+- Intentar moverlo apagado
+- Arrancarlo
+- Moverlo varias veces
+- Mostrar combustible restante
+- Cambiar combustible a 2 litros
+- Intentar moverlo 3 veces más

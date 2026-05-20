@@ -1,5 +1,24 @@
 package net.salesianos.circulo;
 
-public class Circulo {
+import net.salesianos.calculo.Calculo;
+
+public class Circulo implements Calculo {
+
+    protected double radio;
+
+    public Circulo(double radio) {
+        this.radio = radio;
+    }
+
+    @Override
+    public double calcularArea() {
+        return Math.PI * radio * radio;
+    }
+
+    @Override
+    public double calcularPerimetro() {
+        return 2 * Math.PI * radio;
+
+    }
     
 }

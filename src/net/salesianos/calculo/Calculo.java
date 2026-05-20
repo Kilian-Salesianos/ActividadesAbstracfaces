@@ -1,5 +1,9 @@
 package net.salesianos.calculo;
 
-public class Calculo {
+public interface Calculo {
+
+    double calcularArea();
+
+    double calcularPerimetro();
     
 }
